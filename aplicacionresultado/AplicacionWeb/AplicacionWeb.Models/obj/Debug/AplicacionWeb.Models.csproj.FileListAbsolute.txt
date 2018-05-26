@@ -1,0 +1,4 @@
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.Models\bin\Debug\AplicacionWeb.Models.dll
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.Models\bin\Debug\AplicacionWeb.Models.pdb
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.Models\obj\Debug\AplicacionWeb.Models.dll
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.Models\obj\Debug\AplicacionWeb.Models.pdb
