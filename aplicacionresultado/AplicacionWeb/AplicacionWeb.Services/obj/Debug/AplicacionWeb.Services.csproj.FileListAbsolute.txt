@@ -1,0 +1,4 @@
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.Services\bin\Debug\AplicacionWeb.Services.dll
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.Services\bin\Debug\AplicacionWeb.Services.pdb
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.Services\obj\Debug\AplicacionWeb.Services.dll
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.Services\obj\Debug\AplicacionWeb.Services.pdb
