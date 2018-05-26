@@ -1,0 +1,21 @@
+package Pais;
+
+import Models.*;
+import Controllers.*;
+
+page CrearPais(Pais pais) controlledBy PaisController {
+	
+	Panel("Crear Pais") {
+		Form {			
+			Text("Nombre", pais.nombre, 15, 3);
+			
+			PanelButton("Botones") {
+				Button("Crear") -> crearPais(pais);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarPais();
+		}
+	}
+}

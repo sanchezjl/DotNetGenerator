@@ -1,0 +1,168 @@
+{
+	generatorSuiteConfigurations: [
+	
+		{
+		generatorClass: "co.edu.javeriana.dotnetgenerator.DotNetGenerator",
+		active: true,
+		outputConfigurations: 
+		[
+			{
+				name: "entities",
+				outputDirectory:"../aplicacionresultado/AplicacionWeb/AplicacionWeb.Models/",				
+				createOutputDirectory:true,
+				cleanUpDerivedResources:true,
+				overrideExistingResources:true,
+				setDerivedProperty:true,
+				canClearOutputDirectory:false,
+				installDslAsPrimarySource:false,
+				hideSyntheticLocalVariables:true,
+				keepLocalHistory:false,
+				useOutputPerSourceFolder:false
+			},
+			{
+				name: "controllers",
+				outputDirectory:"../aplicacionresultado/AplicacionWeb/AplicacionWeb/Controllers/",				
+				createOutputDirectory:true,
+				cleanUpDerivedResources:true,
+				overrideExistingResources:true,
+				setDerivedProperty:true,
+				canClearOutputDirectory:false,
+				installDslAsPrimarySource:false,
+				hideSyntheticLocalVariables:true,
+				keepLocalHistory:false,
+				useOutputPerSourceFolder:false
+			},
+			{
+				name: "views",
+				outputDirectory:"../aplicacionresultado/AplicacionWeb/AplicacionWeb/Views/",
+				createOutputDirectory:true,
+				cleanUpDerivedResources:true,
+				overrideExistingResources:true,
+				setDerivedProperty:true,
+				canClearOutputDirectory:false,
+				installDslAsPrimarySource:false,
+				hideSyntheticLocalVariables:true,
+				keepLocalHistory:false,
+				useOutputPerSourceFolder:false
+			},
+			{
+				name: "service.interface",
+				outputDirectory:"../aplicacionresultado/AplicacionWeb/AplicacionWeb.Services/Interfaces",
+				createOutputDirectory:true,
+				cleanUpDerivedResources:true,
+				overrideExistingResources:true,
+				setDerivedProperty:true,
+				canClearOutputDirectory:false,
+				installDslAsPrimarySource:false,
+				hideSyntheticLocalVariables:true,
+				keepLocalHistory:false,
+				useOutputPerSourceFolder:false
+			},
+			{
+				name: "service.implementation",
+				outputDirectory:"../aplicacionresultado/AplicacionWeb/AplicacionWeb.Services/Implementation",
+				createOutputDirectory:true,
+				cleanUpDerivedResources:true,
+				overrideExistingResources:true,
+				setDerivedProperty:true,
+				canClearOutputDirectory:false,
+				installDslAsPrimarySource:false,
+				hideSyntheticLocalVariables:true,
+				keepLocalHistory:false,
+				useOutputPerSourceFolder:false
+			},
+			{
+				name: "projectfile",
+				outputDirectory:"../aplicacionresultado/AplicacionWeb/AplicacionWeb/",
+				createOutputDirectory:true,
+				cleanUpDerivedResources:true,
+				overrideExistingResources:true,
+				setDerivedProperty:true,
+				canClearOutputDirectory:false,
+				installDslAsPrimarySource:false,
+				hideSyntheticLocalVariables:true,
+				keepLocalHistory:false,
+				useOutputPerSourceFolder:false
+			},
+			{
+				name: "projectfile.dal",
+				outputDirectory:"../aplicacionresultado/AplicacionWeb/AplicacionWeb.DAL/",
+				createOutputDirectory:true,
+				cleanUpDerivedResources:true,
+				overrideExistingResources:true,
+				setDerivedProperty:true,
+				canClearOutputDirectory:false,
+				installDslAsPrimarySource:false,
+				hideSyntheticLocalVariables:true,
+				keepLocalHistory:false,
+				useOutputPerSourceFolder:false
+			},
+			{
+				name: "projectfile.models",
+				outputDirectory:"../aplicacionresultado/AplicacionWeb/AplicacionWeb.Models/",
+				createOutputDirectory:true,
+				cleanUpDerivedResources:true,
+				overrideExistingResources:true,
+				setDerivedProperty:true,
+				canClearOutputDirectory:false,
+				installDslAsPrimarySource:false,
+				hideSyntheticLocalVariables:true,
+				keepLocalHistory:false,
+				useOutputPerSourceFolder:false
+			},
+			{
+				name: "projectfile.services",
+				outputDirectory:"../aplicacionresultado/AplicacionWeb/AplicacionWeb.Services/",
+				createOutputDirectory:true,
+				cleanUpDerivedResources:true,
+				overrideExistingResources:true,
+				setDerivedProperty:true,
+				canClearOutputDirectory:false,
+				installDslAsPrimarySource:false,
+				hideSyntheticLocalVariables:true,
+				keepLocalHistory:false,
+				useOutputPerSourceFolder:false
+			},									
+			{
+				name: "layoutfile",
+				outputDirectory:"../aplicacionresultado/AplicacionWeb/AplicacionWeb/Views/Shared",
+				createOutputDirectory:true,
+				cleanUpDerivedResources:true,
+				overrideExistingResources:true,
+				setDerivedProperty:true,
+				canClearOutputDirectory:false,
+				installDslAsPrimarySource:false,
+				hideSyntheticLocalVariables:true,
+				keepLocalHistory:false,
+				useOutputPerSourceFolder:false
+			},
+			{
+				name: "applicationdbcontextfile",
+				outputDirectory:"../aplicacionresultado/AplicacionWeb/AplicacionWeb.DAL/",
+				createOutputDirectory:true,
+				cleanUpDerivedResources:true,
+				overrideExistingResources:true,
+				setDerivedProperty:true,
+				canClearOutputDirectory:false,
+				installDslAsPrimarySource:false,
+				hideSyntheticLocalVariables:true,
+				keepLocalHistory:false,
+				useOutputPerSourceFolder:false
+			},
+			{
+				name: "simpleinjectorinitializerfile",
+				outputDirectory:"../aplicacionresultado/AplicacionWeb/AplicacionWeb/App_Start",
+				createOutputDirectory:true,
+				cleanUpDerivedResources:true,
+				overrideExistingResources:true,
+				setDerivedProperty:true,
+				canClearOutputDirectory:false,
+				installDslAsPrimarySource:false,
+				hideSyntheticLocalVariables:true,
+				keepLocalHistory:false,
+				useOutputPerSourceFolder:false
+			}						
+		]
+		}	
+	]
+}

@@ -1,0 +1,16 @@
+package Services;
+
+service ServicioFidelizacion <Cliente>{	
+	
+	native String inscribirCliente(Cliente obj);	
+	native Boolean generarNotificacionCliente(Cliente obj);	
+	native Boolean eliminarCliente(String id);	
+	native String consultarPuntosDisponibles(Cliente obj);	
+	native List <Cliente> consultarReporteClientesInscritos();	
+	native String imprimirCarnetCliente();	
+	native Boolean actualizarDatosCliente(Cliente obj);	
+	native Boolean validarCarnetCliente(Cliente obj);	
+	native Boolean enviarMailCliente(String obj);
+	
+}
+

@@ -1,0 +1,24 @@
+package Venta;
+
+import Models.*;
+import Controllers.*;
+
+page EliminarVenta(Venta venta) controlledBy VentaController {
+	
+	Panel("Eliminar Venta") {
+		
+		Form {
+			OutputText("Fecha:", venta.fecha);
+			OutputText("Nombres:", venta.cliente.nombres);
+			OutputText("Apellidos:", venta.cliente.apellidos);
+		
+			PanelButton("Botones") {
+				Button("Eliminar") -> eliminarVenta(venta);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarVenta();
+		}
+	}
+}

@@ -1,0 +1,36 @@
+package Venta;
+
+import Models.*;
+import Controllers.*;
+
+page ConsultarVenta(Collection<Venta> lista) controlledBy VentaController  {
+
+	Panel("Gestionar Ventas") {
+		DataTable("Collection<Venta>", null) {
+			header : {
+	            Label("Fecha");
+	            Label("Cedula");
+	            Label("Nombre");
+	            Label("Apellido");
+	            Label("Valor Total");
+	            Label("");
+	            Label("");
+	        }
+	        body :
+	        	for(Venta venta in lista) {
+	               	Label(venta.fecha);
+	               	Label(venta.cliente.cedula);
+	               	Label(venta.cliente.nombres);
+	               	Label(venta.cliente.apellidos);
+	               	Label(venta.total);
+	               	Button("Consultar") -> editarVenta(venta.id);
+	               	Button("Eliminar") -> eliminarVenta(venta.id);	               	
+	            }
+		}
+		
+		PanelButton("Botones") {
+			Button("Crear Nueva Venta") -> crearVenta();		
+		}
+	}
+	
+}

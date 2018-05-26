@@ -1,0 +1,23 @@
+package Tipo_Producto;
+
+import Models.*;
+import Controllers.*;
+
+page EliminarTipo_Producto(Tipo_Producto tipo_producto) controlledBy Tipo_ProductoController {
+	
+	Panel("Eliminar Tipo de Producto") {
+		
+		Form {
+			OutputText("Nombre:", tipo_producto.nombre);
+			OutputText("Descripci&#243;n:", tipo_producto.descripcion);
+		
+			PanelButton("Botones") {
+				Button("Eliminar") -> eliminarTipo_Producto(tipo_producto);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarTipo_Producto();
+		}
+	}
+}

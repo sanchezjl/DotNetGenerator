@@ -1,0 +1,26 @@
+package Pais;
+
+import Models.*;
+import Controllers.*;
+
+page ConsultarPais(Collection<Pais> lista) controlledBy PaisController  {
+
+	Panel("Gestionar Paises") {
+		DataTable("Collection<Pais>", null) {
+			header : {
+	            Label("Nombre");
+	            Label("");                  
+	        }
+	        body :
+	        	for(Pais pais in lista) {
+	               	Label(pais.nombre);
+	               	Button("Eliminar") -> eliminarPais(pais.id);
+	            }
+		}
+		
+		PanelButton("Botones") {
+			Button("Crear Nuevo Pais") -> crearPais();		
+		}
+	}
+	
+}

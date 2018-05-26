@@ -1,0 +1,23 @@
+package Ciudad;
+
+import Models.*;
+import Controllers.*;
+
+page EliminarCiudad(Ciudad ciudad) controlledBy CiudadController {
+	
+	Panel("Eliminar Ciudad") {
+		
+		Form {
+			OutputText("Nombre: ", ciudad.nombre);
+			OutputText("Departamento: ", ciudad.departamento.nombre);
+		
+			PanelButton("Botones") {
+				Button("Eliminar") -> eliminarCiudad(ciudad);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarCiudades();
+		}
+	}
+}

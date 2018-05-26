@@ -1,0 +1,39 @@
+package Producto;
+
+import Models.*;
+import Controllers.*;
+
+page ConsultarProducto(Collection<Producto> lista) controlledBy ProductoController  {
+
+	Panel("Gestionar Productos") {
+		DataTable("Collection<Producto>", null) {
+			header : {	            
+	            Label("Nombre");	            
+	            Label("Tipo producto");
+	            Label("Precio");
+	            Label("Imagen");
+	            Label("Sitio Web");	            
+	            Label("Video");
+	            Label("");
+	            Label("");
+	        }
+	        body :
+	        	for(Producto producto in lista) {	               	
+	               	Label(producto.nombre);
+	               	Label(producto.tipo_producto.nombre);
+	               	Label(producto.precio);
+	               	Image(producto.fotourl);
+	               	Link(producto.sitioweb,producto.sitioweb);	               	
+	               	Media(producto.videourl,"200","150");
+
+	               	Button("Editar") -> editarProducto(producto.id);
+	               	Button("Eliminar") -> eliminarProducto(producto.id);	               	
+	            }
+		}
+		
+		PanelButton("Botones") {
+			Button("Crear Nuevo Producto") -> crearProducto();		
+		}
+	}
+	
+}

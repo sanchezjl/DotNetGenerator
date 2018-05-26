@@ -1,0 +1,23 @@
+package Ciudad;
+
+import Models.*;
+import Controllers.*;
+
+page CrearCiudad(Ciudad ciudad, Array<Departamento> listadepartamento) controlledBy CiudadController {
+	
+	Panel("Crear Ciudad") {
+		Form {			
+			
+			Text("Nombre:", ciudad.nombre, 15, 3);
+			ComboChooser("nombre", listadepartamento, ciudad.departamentoid,"--Seleccione el departamento--");		
+			
+			PanelButton("Botones") {
+				Button("Crear") -> crearCiudad(ciudad);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarCiudades();
+		}
+	}
+}

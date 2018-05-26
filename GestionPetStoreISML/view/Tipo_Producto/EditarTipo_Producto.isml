@@ -1,0 +1,22 @@
+package Tipo_Producto;
+
+import Models.*;
+import Controllers.*;
+
+page EditarTipo_Producto(Tipo_Producto tipo_producto) controlledBy Tipo_ProductoController {
+	
+	Panel("Editar Tipo de Producto") {
+		Form {			
+			Text("Nombre", tipo_producto.nombre, 15, 3);
+			Text("Descripci&#243;n", tipo_producto.descripcion, 15, 3);
+		
+			PanelButton("Botones") {
+				Button("Guardar") -> editarTipo_Producto(tipo_producto);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarTipo_Producto();
+		}
+	}
+}

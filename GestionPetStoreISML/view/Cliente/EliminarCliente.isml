@@ -1,0 +1,30 @@
+package Cliente;
+
+import Models.*;
+import Controllers.*;
+
+page EliminarCliente(Cliente cliente) controlledBy ClienteController {
+	
+	Panel("Eliminar Cliente") {
+		
+		Form {
+			
+			Image(cliente.fotourl);			
+			OutputText("C&#233;dula:", cliente.nombres);
+			OutputText("Nombres:", cliente.nombres);
+			OutputText("Apellidos:", cliente.apellidos);
+			OutputText("Fecha de Nacimiento:", cliente.fechanacimiento);
+			OutputText("Ciudad:", cliente.ciudad.nombre);
+			OutputText("Genero:", cliente.genero.nombre);
+			CheckBox("Estado Activo",cliente.usuarioactivo);
+					
+			PanelButton("Botones") {
+				Button("Eliminar") -> eliminarCliente(cliente);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarClientes();
+		}
+	}
+}

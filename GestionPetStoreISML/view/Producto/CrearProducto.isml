@@ -1,0 +1,33 @@
+package Producto;
+
+import Models.*;
+import Controllers.*;
+
+page CrearProducto(Producto producto, Array<Tipo_Producto> listatipoproducto) 
+controlledBy ProductoController {
+	
+	Panel("Crear Producto") {
+		Form {			
+			Text("Nombre", producto.nombre, 15, 3);
+			Text("Descripci&#243;n: ", producto.descripcion, 15, 3);
+			Text("Precio", producto.precio, 15, 3);		
+			Text("Sitio Web", producto.sitioweb, 15, 3);
+			Text("Foto Url", producto.fotourl, 15, 3);			
+			Text("Video url", producto.videourl, 15, 3);
+			ComboChooser("nombre", 
+				listatipoproducto, 
+				producto.tipo_productoid,
+				"--Seleccione el Tipo de Producto--"
+			);
+			
+			PanelButton("Botones") {
+				Button("Crear") -> crearProducto(producto);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarProducto();
+		}
+	}
+}
+

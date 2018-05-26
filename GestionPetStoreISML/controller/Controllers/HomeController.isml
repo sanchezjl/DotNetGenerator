@@ -1,0 +1,10 @@
+package Controllers;
+import Home.*;
+
+controller HomeController {
+	
+	default index() {	
+		show Index;
+	}
+	
+}

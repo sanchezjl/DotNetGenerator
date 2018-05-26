@@ -1,0 +1,23 @@
+package Departamento;
+
+import Models.*;
+import Controllers.*;
+
+page EditarDepartamento(Departamento departamento, Array<Pais> listapais) controlledBy DepartamentoController {
+	
+	Panel("Editar Departamento") {
+		Form {
+
+			Text("Nombre", departamento.nombre, 15, 3);
+			ComboChooser("nombre", listapais, departamento.paisid,null);
+		
+			PanelButton("Botones") {
+				Button("Guardar") -> editarDepartamento(departamento);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarDepartamentos();
+		}	
+	}
+}

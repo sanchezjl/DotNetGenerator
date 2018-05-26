@@ -1,0 +1,15 @@
+package Models;
+
+entity VentaArticulos {
+	Integer id;
+	
+	Integer ventaid;
+	Venta venta;	
+	
+	Integer productoid;
+	Producto producto;
+	
+	Integer cantidad;
+	Integer total;	
+		
+}

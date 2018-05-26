@@ -1,0 +1,28 @@
+package Cliente;
+
+import Models.*;
+import Controllers.*;
+
+page EditarCliente(Cliente cliente, Array<Ciudad> listaciudad, Array<Genero> listagenero) controlledBy ClienteController {
+	
+	Panel("Editar Cliente") {
+		Form {
+			Text("C&#233;dula", cliente.cedula, 15, 3);
+			Text("Nombres", cliente.nombres, 15, 3);
+			Text("Apellidos", cliente.apellidos, 15, 3);
+			Calendar("fecha de nacimiento", cliente.fechanacimiento, null, "DD/MM/YYYY", true, "") ;
+			Text("fotourl", cliente.fotourl, 15, 3);			
+			CheckBox("Estado Activo",cliente.usuarioactivo);
+			ComboChooser("nombre", listaciudad, cliente.ciudadid,null);
+			ComboChooser("nombre", listagenero, cliente.generoid,null);
+		
+			PanelButton("Botones") {
+				Button("Guardar") -> editarCliente(cliente);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarClientes();
+		}	
+	}
+}

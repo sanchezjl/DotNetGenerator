@@ -1,0 +1,22 @@
+package Pais;
+
+import Models.*;
+import Controllers.*;
+
+page EliminarPais(Pais pais) controlledBy PaisController {
+	
+	Panel("Eliminar Pais") {
+		
+		Form {
+			OutputText("Nombre:", pais.nombre);
+	
+			PanelButton("Botones") {
+				Button("Eliminar") -> eliminarPais(pais);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarPais();
+		}
+	}
+}

@@ -1,0 +1,52 @@
+package Venta;
+
+import Models.*;
+import Controllers.*;
+
+page EditarVenta(Venta venta, String nombrecliente, Integer total) controlledBy VentaController {
+	
+	Panel("Editar Venta") {
+		Form {	
+			
+			OutputText("Fecha:", venta.fecha);
+			OutputText("Cliente:", nombrecliente);
+			OutputText("Total a Pagar:", total);
+			
+			PanelButton("panel1") {
+				Button("Registrar Pago") -> editarVenta(venta);				
+			}
+			
+			PanelButton("panel2") {
+				Button("Agregar Producto (+)") -> seleccionarVentaArticulo(venta.id);				
+			}		
+			
+			DataTable("Collection<Producto>", null) {
+				header : {	            
+		            Label("Nombre");	            
+		            Label("Imagen");
+		            Label("Tipo producto");
+		            Label("Precio unitario");
+		            Label("Cantidad");
+		            Label("Total");
+		            Label("");
+		        }
+		        body :
+		        	for(VentaArticulos ventaarticulo in venta.articulos) {	               	
+		               	Label(ventaarticulo.producto.nombre);
+		               	Image(ventaarticulo.producto.fotourl);	               	
+		               	Label(ventaarticulo.producto.tipo_producto.nombre);
+		               	Label(ventaarticulo.producto.precio);
+		               	Label(ventaarticulo.cantidad);
+		               	Label(ventaarticulo.total);
+		               	Button("Remover Articulo") -> eliminarVentaArticulo(ventaarticulo.id);	               	
+		            }
+			}
+		}
+		
+
+		
+		PanelButton("Botones2") {
+			Button("Volver al listado") -> consultarVenta();
+		}
+	}
+}

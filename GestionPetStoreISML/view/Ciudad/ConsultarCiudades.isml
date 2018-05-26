@@ -1,0 +1,30 @@
+package Ciudad;
+
+import Models.*;
+import Controllers.*;
+
+page ConsultarCiudades(Collection<Ciudad> lista) controlledBy CiudadController  {
+
+	Panel("Gestionar Ciudades") {
+		DataTable("Collection<Ciudad>", null) {
+			header : {
+	            Label("Nombre");
+	            Label("Departamento");
+	            Label("");
+	            Label("");                  
+	        }
+	        body :
+	        	for(Ciudad ciudad in lista) {
+	               	Label(ciudad.nombre);
+	               	Label(ciudad.departamento.nombre);
+	               	Button("Editar") -> editarCiudad(ciudad.id);
+	               	Button("Eliminar") -> eliminarCiudad(ciudad.id);
+	            }
+		}
+		
+		PanelButton("Botones") {
+			Button("Crear Nueva Ciudad") -> crearCiudad();		
+		}
+	}
+	
+}

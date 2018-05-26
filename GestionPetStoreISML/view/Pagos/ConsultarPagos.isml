@@ -1,0 +1,32 @@
+package Pagos;
+
+import Models.*;
+import Controllers.*;
+
+page ConsultarRegistroPago(Collection<RegistroPago> lista) controlledBy PagosController  {
+
+	Panel("Listado de Pagos Registrados") {
+		DataTable("Collection<RegistroPago>", null) {
+			header : {
+	            Label("IdVenta");
+	            Label("Fecha");
+	            Label("Valor");
+	            Label("Estado");
+	            Label("C&#243;digo Aprobaci&#243;n");
+	            Label("");
+	        }
+	        body :
+	        	for(RegistroPago registropago in lista) {
+	               	Label(registropago.ventaid);			
+					Label(registropago.fecha);
+					Label(registropago.valor);
+					Label(registropago.estadotransaccion);
+					Label(registropago.codigoaprobacion);
+					Button("Eliminar") -> eliminarPago(registropago.id);
+	            }
+		}
+		
+
+	}
+	
+}

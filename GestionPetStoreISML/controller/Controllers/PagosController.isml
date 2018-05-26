@@ -1,0 +1,72 @@
+package Controllers;
+
+import Models.*;
+import Pagos.*;
+import Services.*;
+
+
+controller PagosController {
+	
+	has Persistence<Venta> persistenceventa;
+	has Persistence<RegistroPago> persistenceregistropago;
+	has ServicioPagos<RegistroPago> serviciopago;
+	
+	default consultarRegistroPago()
+	{
+		show ConsultarRegistroPago(persistenceregistropago.findAll());
+	}
+	
+	eliminarPago(Integer id)
+	{
+		persistenceregistropago.remove(id);
+		->consultarRegistroPago();
+	}
+		
+	registrarPago(Integer idventa, Integer total) {
+		
+		Venta venta = persistenceventa.find(idventa);
+		RegistroPago registropago = new RegistroPago;
+		registropago.ventaid=venta.id;		
+		registropago.fecha=venta.fecha;
+		registropago.valor=total;
+		
+		show RegistrarPago(registropago);
+	}
+		
+		
+	registrarPago(RegistroPago registropago) {			
+				
+		String resultado = serviciopago.obtenerDatosDatafono(registropago);
+		
+		if(resultado!="")
+		{
+			registropago.codigoaprobacion=resultado;		
+			registropago.estadotransaccion="APROBADA";			
+		}
+		else
+		{
+			registropago.codigoaprobacion="N/A";
+			registropago.estadotransaccion="RECHAZADO";
+		}
+		
+		persistenceregistropago.create(registropago);
+		
+		-> resultadoTransaccion(registropago.id);
+	}
+	
+	
+	
+	resultadoTransaccion(Integer id) {		
+		show ResultadoTransaccion(persistenceregistropago.find(id));
+	}
+	 
+	
+	regresarAVenta(Integer ventaid) {		
+		->VentaController.editarVenta(ventaid);
+	}
+	 
+	 
+	crearNuevaVenta() {		
+		->VentaController.crearVenta();
+	}
+}

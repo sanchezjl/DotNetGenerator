@@ -1,0 +1,59 @@
+package Controllers;
+
+import Models.*;
+import Ciudad.*;
+import Services.*;
+
+controller CiudadController {
+	
+	has Persistence<Ciudad> persistenceciudad;
+	has Persistence<Departamento> persistencedepartamento;	
+	
+	consultarCiudades() {
+		
+		show ConsultarCiudades(persistenceciudad.findAll());
+	}
+		
+	crearCiudad() {		
+		Ciudad ciudad = new Ciudad;		
+		Array<Departamento> listadepartamento = persistencedepartamento.findAll();
+		
+		show CrearCiudad(ciudad,listadepartamento);
+	}	
+	
+	crearCiudad(Ciudad ciudad) {		
+		persistenceciudad.create(ciudad);
+		-> consultarCiudades();
+	}
+	
+	
+	editarCiudad(Integer id) {
+		
+		Array<Departamento> listadepartamento = persistencedepartamento.findAll();
+		
+		show EditarCiudad(persistenceciudad.find(id), listadepartamento);
+	}	
+	
+	editarCiudad(Ciudad ciudad) {
+		
+		if(persistenceciudad.isPersistent(ciudad))
+		{
+			persistenceciudad.save(ciudad);			
+		}
+		else
+		{
+			persistenceciudad.create(ciudad);
+		}		
+		
+		-> consultarCiudades();
+	}
+	
+	eliminarCiudad(Integer id) {
+		show EliminarCiudad(persistenceciudad.find(id));
+	}
+	
+	eliminarCiudad(Ciudad ciudad) {
+		persistenceciudad.remove(ciudad);		
+		-> consultarCiudades();
+	}
+}

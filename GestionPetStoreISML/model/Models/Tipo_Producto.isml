@@ -1,0 +1,9 @@
+package Models;
+
+entity Tipo_Producto {
+	Integer id;
+	String nombre must be NotNull;
+	String descripcion;
+	
+	List<Producto> productos opposite tipo_producto;
+}

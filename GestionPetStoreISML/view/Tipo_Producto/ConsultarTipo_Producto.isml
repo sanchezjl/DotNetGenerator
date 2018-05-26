@@ -1,0 +1,30 @@
+package Tipo_Producto;
+
+import Models.*;
+import Controllers.*;
+
+page ConsultarTipo_Producto(Collection<Tipo_Producto> lista) controlledBy Tipo_ProductoController  {
+
+	Panel("Gestionar Tipos de Productos") {
+		DataTable("Collection<Tipo_Producto>", null) {
+			header : {
+	            Label("Nombre");
+	            Label("Descripci&#243;n");
+	            Label("");
+	            Label("");
+	        }
+	        body :
+	        	for(Tipo_Producto tipo_producto in lista) {
+	               	Label(tipo_producto.nombre);
+	               	Label(tipo_producto.descripcion);
+	               	Button("Editar") -> editarTipo_Producto(tipo_producto.id);
+	               	Button("Eliminar") -> eliminarTipo_Producto(tipo_producto.id);	               	
+	            }
+		}
+		
+		PanelButton("Botones") {
+			Button("Crear Nuevo Tipo de Producto") -> crearTipo_Producto();		
+		}
+	}
+	
+}

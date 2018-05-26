@@ -1,0 +1,32 @@
+package Controllers;
+
+import Models.*;
+import Pais.*;
+
+controller PaisController {
+	
+	has Persistence<Pais> persistence;	
+	
+	consultarPais() {
+		show ConsultarPais(persistence.findAll());
+	}
+		
+	crearPais() {		
+		Pais pais = new Pais;
+		show CrearPais(pais);
+	}	
+	
+	crearPais(Pais pais) {		
+		persistence.create(pais);
+		-> consultarPais();
+	}
+	
+	eliminarPais(Integer id) {
+		show EliminarPais(persistence.find(id));
+	}
+	
+	eliminarPais(Pais pais) {
+		persistence.remove(pais);		
+		-> consultarPais();
+	}
+}

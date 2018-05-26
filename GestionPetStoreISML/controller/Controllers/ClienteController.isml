@@ -1,0 +1,64 @@
+package Controllers;
+
+import Models.*;
+import Cliente.*;
+
+controller ClienteController {
+	
+	has Persistence<Cliente> clientepersistence;	
+	has Persistence<Ciudad> ciudadpersitence;
+	has Persistence<Genero> generopersitence;
+	
+	default consultarClientes() {	
+		show ConsultarClientes(clientepersistence.findAll());
+	}
+	
+	
+	crearCliente() {
+		Cliente cliente= new Cliente;
+		Array<Ciudad> listaciudad = ciudadpersitence.findAll();
+		Array<Genero> listagenero = generopersitence.findAll();
+		
+		show CrearCliente(cliente, listaciudad, listagenero);
+	}	
+	
+	crearCliente(Cliente cliente) {		
+		clientepersistence.create(cliente);
+		-> consultarClientes();
+	}
+			
+			
+	editarCliente(Integer id) {
+		
+		Array<Ciudad> listaciudad = ciudadpersitence.findAll();
+		Array<Genero> listagenero = generopersitence.findAll();
+		
+		show EditarCliente(clientepersistence.find(id), listaciudad, listagenero);
+	}	
+	
+	editarCliente(Cliente cliente) {
+		
+		if(clientepersistence.isPersistent(cliente))
+		{
+			clientepersistence.save(cliente);			
+		}
+		else
+		{
+			clientepersistence.create(cliente);
+		}		
+		
+		-> consultarClientes();
+	}
+	
+	
+	eliminarCliente(Integer id) {
+		show EliminarCliente(clientepersistence.find(id));
+	}
+	
+	
+	eliminarCliente(Cliente cliente) {
+		clientepersistence.remove(cliente);		
+		-> consultarClientes();
+	}
+	
+}

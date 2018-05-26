@@ -1,0 +1,139 @@
+package Controllers;
+
+import Models.*;
+import Venta.*;
+
+controller VentaController {
+	
+	has Persistence<Venta> persistenceventa;
+	has Persistence<Cliente> persistencecliente;	
+	has Persistence<Producto> persistenceproducto;
+	has Persistence<VentaArticulos> persistenceventaarticulo;
+	has Persistence<RegistroPago> persistenceregistropago;
+	
+	default consultarVenta() {
+		
+		Array<Venta> lista = persistenceventa.findAll();
+		for(Venta venta; in lista)
+		{
+			for(VentaArticulos vetaarticulo; in venta.articulos)
+			{
+				venta.total=venta.total+vetaarticulo.total;				
+			}
+		}		
+		show ConsultarVenta(lista);
+	}
+		
+	crearVenta() {		
+		Venta venta = new Venta;
+		Array<Cliente> listaclientes = persistencecliente.findAll();
+		for(Cliente cliente; in listaclientes)
+		{
+			cliente.nombres= cliente.nombres+" "+cliente.apellidos;			
+		}		
+		
+		show CrearVenta(venta, listaclientes);
+	}	
+	
+	crearVenta(Venta venta) {		
+		persistenceventa.create(venta);
+		-> consultarVenta();
+	}
+	
+	
+	eliminarVenta(Integer id) {		
+		show EliminarVenta(persistenceventa.find(id));
+	}
+	
+	eliminarVenta(Venta venta) {				
+
+		Venta ventaart= persistenceventa.find(venta.id);
+
+		//Se eliminan los articulos asociados a esta venta		
+		for(VentaArticulos art; in ventaart.articulos) {
+			persistenceventaarticulo.remove(art.id);
+		}		
+		
+		//Se eliminan los pagos asociados a esta venta
+		for(RegistroPago item; in ventaart.pagos) {
+			persistenceregistropago.remove(item.id);
+		}
+		
+		persistenceventa.remove(venta);		
+		-> consultarVenta();
+	}
+	
+	
+	editarVenta(Integer id) {
+		
+		Venta venta= persistenceventa.find(id);
+		Cliente cliente= persistencecliente.find(venta.clienteid);
+		String nombrecliente= cliente.nombres +" "+ cliente.apellidos;
+		Integer total=0;
+		for(VentaArticulos ventart; in venta.articulos)
+		{
+			total= total + ventart.total;
+		}
+		
+		show EditarVenta(venta, nombrecliente, total);
+	}	
+	
+	editarVenta(Venta venta) {
+		
+		Venta infoventa = persistenceventa.find(venta.id);
+		for(VentaArticulos ventart; in infoventa.articulos)
+		{
+			venta.total= venta.total + ventart.total;
+		}
+		-> PagosController.registrarPago(venta.id, venta.total);
+	}
+	
+	
+	
+	eliminarVentaArticulo(Integer id){
+		show EliminarVentaArticulo(persistenceventaarticulo.find(id));
+	}
+
+	eliminarVentaArticulo(VentaArticulos ventaarticulos)
+	{		
+		VentaArticulos ventaart= persistenceventaarticulo.find(ventaarticulos.id);
+		
+		//Se remueve el registro
+		Integer ventaid = ventaart.ventaid;
+		persistenceventaarticulo.remove(ventaarticulos);
+	
+		-> editarVenta( ventaid );
+	}	
+	
+	
+	
+	seleccionarVentaArticulo(Integer id) {
+		Array<Producto> listaproductos = persistenceproducto.findAll();
+		show SeleccionarVentaArticulo(persistenceventa.find(id),listaproductos);
+	}
+	
+	
+	crearVentaArticulo(Integer ventaid, Integer productoid){
+	 	
+	 	Producto producto = persistenceproducto.find(productoid);
+
+        VentaArticulos ventaarticulo = new VentaArticulos;        
+        ventaarticulo.ventaid = ventaid;
+        ventaarticulo.productoid = productoid;
+        ventaarticulo.cantidad = 1;
+		
+		show CrearVentaArticulo( ventaarticulo, producto );
+	}
+	
+	
+	crearVentaArticulo(VentaArticulos ventaarticulo){
+	 	
+	 	Producto prod = persistenceproducto.find(ventaarticulo.productoid);
+        ventaarticulo.total = ventaarticulo.cantidad * prod.precio;
+
+        persistenceventaarticulo.create(ventaarticulo);
+		
+        -> editarVenta( ventaarticulo.ventaid );
+	}	
+	
+}

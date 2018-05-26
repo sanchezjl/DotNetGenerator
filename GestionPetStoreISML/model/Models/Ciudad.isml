@@ -1,0 +1,9 @@
+package Models;
+
+entity Ciudad {
+	Integer id;
+	String nombre;	
+	Integer departamentoid;
+	Departamento departamento;	
+	List<Cliente> clientes opposite ciudad;
+}

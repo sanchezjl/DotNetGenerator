@@ -1,0 +1,23 @@
+package Ciudad;
+
+import Models.*;
+import Controllers.*;
+
+page EditarCiudad(Ciudad ciudad, Array<Departamento> listadepartamento) controlledBy CiudadController {
+	
+	Panel("Editar Ciudad") {
+		Form {
+
+			Text("Nombre", ciudad.nombre, 15, 3);
+			ComboChooser("nombre", listadepartamento, ciudad.departamentoid,null);
+		
+			PanelButton("Botones") {
+				Button("Guardar") -> editarCiudad(ciudad);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarCiudades();
+		}	
+	}
+}

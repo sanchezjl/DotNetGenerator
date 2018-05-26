@@ -1,0 +1,26 @@
+package Pagos;
+
+import Models.*;
+import Controllers.*;
+
+page EliminarRegistroPago(RegistroPago registropago) controlledBy PagosController {
+	
+	Panel("Desea eliminar el siguiente registro?") {
+		
+		Form {
+			OutputText("idventa", registropago.ventaid);			
+			OutputText("Fecha", registropago.fecha);
+			OutputText("Valor", registropago.valor);
+			OutputText("Estado", registropago.estadotransaccion);
+			OutputText("C&#243;digo Aprobaci&#243;n", registropago.codigoaprobacion);
+		
+			PanelButton("Botones") {
+				Button("Eliminar") -> eliminarPago(registropago.id);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarRegistroPago();
+		}
+	}
+}

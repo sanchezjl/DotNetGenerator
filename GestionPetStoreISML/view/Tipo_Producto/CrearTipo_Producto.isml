@@ -1,0 +1,22 @@
+package Tipo_Producto;
+
+import Models.*;
+import Controllers.*;
+
+page CrearTipo_Producto(Tipo_Producto tipo_producto) controlledBy Tipo_ProductoController {
+	
+	Panel("Crear Tipo de Producto") {
+		Form {			
+			Text("Nombre", tipo_producto.nombre, 15, 3);
+			Text("Descripci&#243;n: ", tipo_producto.descripcion, 15, 3);
+			
+			PanelButton("Botones") {
+				Button("Crear") -> crearTipo_Producto(tipo_producto);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarTipo_Producto();
+		}
+	}
+}

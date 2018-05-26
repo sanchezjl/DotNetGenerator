@@ -1,0 +1,23 @@
+package Venta;
+
+import Models.*;
+import Controllers.*;
+
+page CrearVenta(Venta venta, Array<Cliente> listaclientes) controlledBy VentaController {
+	
+	Panel("Nueva Venta") {
+		Form {			
+
+			Calendar("Fecha", venta.fecha, null, "DD/MM/YYYY", true, "") ;
+			ComboChooser("nombres", listaclientes, venta.clienteid,"--- Seleccione el Cliente ---");
+			
+			PanelButton("Botones") {
+				Button("Crear") -> crearVenta(venta);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarVenta();
+		}
+	}
+}

@@ -1,0 +1,30 @@
+package Departamento;
+
+import Models.*;
+import Controllers.*;
+
+page ConsultarDepartamentos(Collection<Departamento> lista) controlledBy DepartamentoController  {
+
+	Panel("Gestionar Departamento") {
+		DataTable("Collection<Departamento>", null) {
+			header : {
+	            Label("Nombre");
+	            Label("Pais");
+	            Label("");
+	            Label("");                  
+	        }
+	        body :
+	        	for(Departamento departamento in lista) {
+	               	Label(departamento.nombre);
+	               	Label(departamento.pais.nombre);
+	               	Button("Editar") -> editarDepartamento(departamento.id);
+	               	Button("Eliminar") -> eliminarDepartamento(departamento.id);
+	            }
+		}
+		
+		PanelButton("Botones") {
+			Button("Crear Nuevo Departamento") -> crearDepartamento();		
+		}
+	}
+	
+}

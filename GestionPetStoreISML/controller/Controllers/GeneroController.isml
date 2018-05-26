@@ -1,0 +1,52 @@
+package Controllers;
+
+import Models.*;
+import Genero.*;
+
+controller GeneroController {
+	
+	has Persistence<Genero> persistence;	
+	
+	consultarGenero() {
+		show ConsultarGenero(persistence.findAll());
+	}
+		
+	crearGenero() {		
+		Genero genero = new Genero;
+		show CrearGenero(genero);
+	}	
+	
+	crearGenero(Genero genero) {		
+		persistence.create(genero);
+		-> consultarGenero();
+	}
+	
+	eliminarGenero(Integer id) {
+		show EliminarGenero(persistence.find(id));
+	}
+	
+	eliminarGenero(Genero genero) {
+		persistence.remove(genero);		
+		-> consultarGenero();
+	}
+	
+	
+	editarGenero(Integer id) {
+		show EditarGenero(persistence.find(id));
+	}	
+	
+	editarGenero(Genero genero) {
+		
+		if(persistence.isPersistent(genero))
+		{
+			persistence.save(genero);			
+		}
+		else
+		{
+			persistence.create(genero);
+		}		
+		
+		-> consultarGenero();
+	}
+	
+}

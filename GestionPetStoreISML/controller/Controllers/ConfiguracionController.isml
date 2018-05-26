@@ -1,0 +1,30 @@
+package Controllers;
+
+import Models.*;
+import Configuracion.*;
+
+controller ConfiguracionController {
+
+	
+	default consultarConfiguracion() {		
+		show ConsultarConfiguracion;
+	}
+			
+	gestionarPais() {		
+		->PaisController.consultarPais();
+	}		
+	
+	gestionarDepartamento() {		
+		->DepartamentoController.consultarDepartamentos();
+	}		
+	
+	
+	gestionarCiudad() {		
+		->CiudadController.consultarCiudades();
+	}	
+	
+	gestionarGenero() {		
+		->GeneroController.consultarGenero();
+	}	
+	
+}

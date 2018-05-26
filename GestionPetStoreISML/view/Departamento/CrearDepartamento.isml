@@ -1,0 +1,25 @@
+package Departamento;
+
+import Models.*;
+import Controllers.*;
+
+page CrearDepartamento(Departamento departamento, Array<Pais> listapais) controlledBy DepartamentoController {
+	
+	Panel("Crear Departamento") {
+		Form {			
+			
+			Text("Nombre:", departamento.nombre, 15, 3);			
+			
+			//Label("Pais:");
+			ComboChooser("nombre", listapais, departamento.paisid,"--Seleccione el pais--");		
+			
+			PanelButton("Botones") {
+				Button("Crear") -> crearDepartamento(departamento);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarDepartamentos();
+		}
+	}
+}

@@ -1,0 +1,12 @@
+package Services;
+
+service ServicioEntregaDomicilio <RegistroPago>{
+	
+	native String enviarPedido(RegistroPago obj);	
+	native String consultarEstadoPedido(RegistroPago obj);	
+	native String anularPedido(String id);	
+	native Boolean consultarDisponibilidadMensajero(RegistroPago obj);	
+	native List <RegistroPago> consultarReportePedidos();
+	
+}
+

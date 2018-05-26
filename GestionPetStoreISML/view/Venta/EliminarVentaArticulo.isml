@@ -1,0 +1,29 @@
+package Venta;
+
+import Models.*;
+import Controllers.*;
+
+page EliminarVentaArticulo(VentaArticulos ventaarticulo) controlledBy VentaController {
+	
+	Panel("Desea Remover el siguiente producto?") {
+		
+		Form {
+			
+			Image(ventaarticulo.producto.fotourl);
+			
+			OutputText("Nombre", ventaarticulo.producto.nombre);
+			OutputText("Tipo de producto", ventaarticulo.producto.tipo_producto.nombre);
+			OutputText("Precio unitario", ventaarticulo.producto.precio);
+			OutputText("Descripci&#243;n", ventaarticulo.producto.descripcion);						
+			OutputText("Cantidad", ventaarticulo.cantidad);
+						
+			PanelButton("Botones") {
+				Button("Eliminar") -> eliminarVentaArticulo(ventaarticulo);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> editarVenta(ventaarticulo.ventaid);
+		}
+	}
+}

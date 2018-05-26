@@ -1,0 +1,27 @@
+package Producto;
+
+import Models.*;
+import Controllers.*;
+
+page EliminarProducto(Producto producto) controlledBy ProductoController {
+	
+	Panel("Eliminar Producto") {
+		
+		Form {
+			
+			Image(producto.fotourl);			
+			OutputText("Nombre", producto.nombre);
+			OutputText("Descripci&#243;n", producto.descripcion);
+			OutputText("Precio", producto.precio);	
+			OutputText("Tipo de producto", producto.tipo_producto.nombre);
+						
+			PanelButton("Botones") {
+				Button("Eliminar") -> eliminarProducto(producto);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarProducto();
+		}
+	}
+}

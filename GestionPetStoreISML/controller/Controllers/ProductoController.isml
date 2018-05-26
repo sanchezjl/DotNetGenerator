@@ -1,0 +1,51 @@
+package Controllers;
+
+import Models.*;
+import Producto.*;
+
+controller ProductoController {	
+	has Persistence<Producto> productopersistence;	
+	has Persistence<Tipo_Producto> tipoproductopersistence;	
+	
+	default consultarProducto() {
+		show ConsultarProducto(productopersistence.findAll());
+	}
+		
+	crearProducto() {		
+		Producto producto = new Producto;
+		Array<Tipo_Producto> listatipoproducto = tipoproductopersistence.findAll();		
+		show CrearProducto(producto, listatipoproducto);
+	}	
+	
+	crearProducto(Producto producto) {		
+		productopersistence.create(producto);
+		-> consultarProducto();
+	}
+	
+	eliminarProducto(Integer id) {
+		show EliminarProducto(productopersistence.find(id));
+	}
+	
+	eliminarProducto(Producto producto) {
+		productopersistence.remove(producto);		
+		-> consultarProducto();
+	}	
+	
+	editarProducto(Integer id) {		
+		Array<Tipo_Producto> listatipoproducto = tipoproductopersistence.findAll();		
+		show EditarProducto(productopersistence.find(id),listatipoproducto);
+	}	
+	
+	editarProducto(Producto producto) {		
+		if(productopersistence.isPersistent(producto))
+		{
+			productopersistence.save(producto);			
+		}
+		else
+		{
+			productopersistence.create(producto);
+		}		
+		-> consultarProducto();
+	}	
+}
+

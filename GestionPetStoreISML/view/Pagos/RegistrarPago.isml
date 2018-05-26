@@ -1,0 +1,27 @@
+package Pagos;
+
+import Models.*;
+import Controllers.*;
+
+page RegistrarPago(RegistroPago registropago) controlledBy PagosController {
+	
+	Panel("Registro del Pago") {
+		
+		Image("https://cdn.thumbr.io/6e27664a239255754e39ee889f444356/KhPZbWboUluRxv8PG87L/https%3A%2F%2Fthumb10.shutterstock.com/thumb_large/875032/759717967/stock-vector-payment-online-dataphone-hand-holding-credit-card-market-759717967.jpg/150/thumb.jpg?rect=0,0,150,150");
+		
+		Form {			
+			
+			Text("idventa:", registropago.ventaid, 15, 3);
+			Calendar("fecha", registropago.fecha, null, "DD/MM/YYYY", true, "");
+			Text("Valor a pagar:", registropago.valor, 15, 3);			
+			
+			PanelButton("Botones") {
+				Button("Capturar Datos Datafono") -> registrarPago(registropago);
+			}
+		}
+		
+		//PanelButton("Botones") {
+		//	Button("Volver al la venta") -> regresarAVenta(registropago.ventaid);
+		//}
+	}
+}

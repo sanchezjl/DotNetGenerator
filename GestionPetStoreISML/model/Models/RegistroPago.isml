@@ -1,0 +1,12 @@
+package Models;
+
+entity RegistroPago {
+	Integer id;
+	Date fecha;	
+	String estadotransaccion;
+	String codigoaprobacion;
+	Integer valor;
+	
+	Venta venta;
+	Integer ventaid;	
+}

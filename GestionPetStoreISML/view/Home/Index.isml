@@ -1,0 +1,34 @@
+package Home;
+
+import Models.*;
+import Controllers.*;
+
+page Index() controlledBy HomeController  {	
+	
+Label("
+<div>
+    <table style=\"height: 394px;\" width=\"580\">
+        <tbody>
+            <tr>
+                <td >
+                    <h2 style=\"text-align: center;\">Proyecto DotNetGenerator</h2>
+                    <img style=\"margin-right: auto; margin-left: auto; display: block;\" src=\"http://pegasus.javeriana.edu.co/~PA181-3-DotNetGen/img/escudovertical.png\" height=\"150\" />
+                </td>
+            </tr>
+            <tr>
+                <td style=\"width: 564px;\">
+                    <p>Generador de C&oacute;digo para <strong>ASP.NET MVC 5 y Entity Framework</strong> a partir de <strong>Modelos ISML.</strong></p>
+                    <p><strong>Pet-Store</strong> es una aplicaci&oacute;n que permite administrar una tienda de mascotas, y cuenta con las siguientes funcionalidades funcionalidades:</p>
+                    <ul>
+                        <li>Registro de Clientes</li>
+                        <li>Gestion de Productos</li>
+                        <li>Venta de Productos</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+");	
+	
+}

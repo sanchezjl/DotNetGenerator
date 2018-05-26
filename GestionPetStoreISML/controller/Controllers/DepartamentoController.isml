@@ -1,0 +1,57 @@
+package Controllers;
+
+import Models.*;
+import Departamento.*;
+
+controller DepartamentoController {
+	
+	has Persistence<Departamento> persistencedepartamento;
+	has Persistence<Pais> persistencepais;	
+	
+	consultarDepartamentos() {
+		show ConsultarDepartamentos(persistencedepartamento.findAll());
+	}
+		
+	crearDepartamento() {		
+		Departamento departamento = new Departamento;		
+		Array<Pais> listapais = persistencepais.findAll();
+		
+		show CrearDepartamento(departamento,listapais);
+	}	
+	
+	crearDepartamento(Departamento departamento) {		
+		persistencedepartamento.create(departamento);
+		-> consultarDepartamentos();
+	}
+	
+	
+	editarDepartamento(Integer id) {
+		
+		Array<Pais> listapais = persistencepais.findAll();
+		
+		show EditarDepartamento(persistencedepartamento.find(id), listapais);
+	}	
+	
+	editarDepartamento(Departamento departamento) {
+		
+		if(persistencedepartamento.isPersistent(departamento))
+		{
+			persistencedepartamento.save(departamento);			
+		}
+		else
+		{
+			persistencedepartamento.create(departamento);
+		}		
+		
+		-> consultarDepartamentos();
+	}
+	
+	eliminarDepartamento(Integer id) {
+		show EliminarDepartamento(persistencedepartamento.find(id));
+	}
+	
+	eliminarDepartamento(Departamento departamento) {
+		persistencedepartamento.remove(departamento);		
+		-> consultarDepartamentos();
+	}
+}

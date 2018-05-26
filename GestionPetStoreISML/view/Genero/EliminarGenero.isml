@@ -1,0 +1,22 @@
+package Genero;
+
+import Models.*;
+import Controllers.*;
+
+page EliminarGenero(Genero genero) controlledBy GeneroController {
+	
+	Panel("Eliminar Genero") {
+		
+		Form {
+			OutputText("Nombre:", genero.nombre);
+		
+			PanelButton("Botones") {
+				Button("Eliminar") -> eliminarGenero(genero);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarGenero();
+		}
+	}
+}

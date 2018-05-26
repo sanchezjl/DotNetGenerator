@@ -1,0 +1,21 @@
+package Genero;
+
+import Models.*;
+import Controllers.*;
+
+page EditarGenero(Genero genero) controlledBy GeneroController {
+	
+	Panel("Editar Genero") {
+		Form {			
+			Text("Nombre", genero.nombre, 15, 3);
+			
+			PanelButton("Botones") {
+				Button("Guardar") -> editarGenero(genero);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarGenero();
+		}
+	}
+}

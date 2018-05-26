@@ -1,0 +1,8 @@
+package Models;
+
+entity Genero {
+	Integer id;
+	String nombre must be NotNull;
+	
+	List<Cliente> clientesgenero opposite genero;
+}

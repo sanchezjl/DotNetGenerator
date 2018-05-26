@@ -1,0 +1,13 @@
+package Models;
+
+entity Venta {
+	Integer id;
+	Date fecha;
+	
+	Integer clienteid;
+	Cliente cliente;
+	Integer total;
+	
+	List<VentaArticulos> articulos opposite venta;
+	List<RegistroPago> pagos opposite venta;	
+}

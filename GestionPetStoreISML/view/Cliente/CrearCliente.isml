@@ -1,0 +1,28 @@
+package Cliente;
+
+import Models.*;
+import Controllers.*;
+
+page CrearCliente(Cliente cliente, Array<Ciudad> listaciudad, Array<Genero> listagenero) controlledBy ClienteController {
+	
+	Panel("Crear Cliente") {
+		Form {
+			Text("C&#233;dula", cliente.cedula, 15, 3);
+			Text("Nombres", cliente.nombres, 15, 3);
+			Text("Apellidos", cliente.apellidos, 15, 3);
+			Calendar("fechanacimiento", cliente.fechanacimiento, null, "DD/MM/YYYY", true, "") ;
+			Text("FotoUrl", cliente.fotourl, 15, 3);			
+			CheckBox("Estado Activo",cliente.usuarioactivo);
+			ComboChooser("nombre", listagenero, cliente.generoid,"--- Seleccione el Genero           ---");
+			ComboChooser("nombre", listaciudad, cliente.ciudadid,"--- Seleccione la Ciudad de Origen ---");						
+						
+			PanelButton("Botones") {
+				Button("Crear") -> crearCliente(cliente);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarClientes();
+		}	
+	}
+}

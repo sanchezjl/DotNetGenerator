@@ -1,0 +1,21 @@
+package Models;
+
+entity Cliente {
+	
+	Integer id;
+	String cedula must be NotNull;
+	String nombres must be Max(100);
+	String apellidos; 
+	Date fechanacimiento;
+	String fotourl;
+	Boolean usuarioactivo;	
+	
+	Integer ciudadid;
+	Ciudad ciudad;
+	
+	Integer generoid;
+	Genero genero;
+		
+	List<Venta> ventas opposite cliente;
+
+}

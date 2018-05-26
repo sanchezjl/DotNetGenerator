@@ -1,0 +1,29 @@
+package Venta;
+
+import Models.*;
+import Controllers.*;
+
+page CrearVentaArticulo(VentaArticulos ventaarticulo, Producto producto) controlledBy VentaController {
+	
+	Panel("Desea agregar el siguiente producto?") {
+		
+		Form {
+			
+			Image(producto.fotourl);
+			
+			OutputText("Nombre", producto.nombre);
+			OutputText("Tipo de producto", producto.tipo_producto.nombre);
+			OutputText("Precio unitario", producto.precio);
+			OutputText("Descripci&#243;n", producto.descripcion);						
+			Text("Cantidad", ventaarticulo.cantidad, 15, 3);
+						
+			PanelButton("Botones") {
+				Button("Agregar") -> crearVentaArticulo(ventaarticulo);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> editarVenta(ventaarticulo.ventaid);
+		}
+	}
+}

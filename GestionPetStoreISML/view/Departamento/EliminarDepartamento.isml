@@ -1,0 +1,23 @@
+package Departamento;
+
+import Models.*;
+import Controllers.*;
+
+page EliminarDepartamento(Departamento departamento) controlledBy DepartamentoController {
+	
+	Panel("Eliminar Departamento") {
+		
+		Form {
+			OutputText("Nombre: ", departamento.nombre);
+			OutputText("Pais: ", departamento.pais.nombre);
+		
+			PanelButton("Botones") {
+				Button("Eliminar") -> eliminarDepartamento(departamento);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarDepartamentos();
+		}
+	}
+}

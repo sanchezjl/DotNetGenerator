@@ -1,0 +1,28 @@
+package Genero;
+
+import Models.*;
+import Controllers.*;
+
+page ConsultarGenero(Collection<Genero> lista) controlledBy GeneroController  {
+
+	Panel("Gestionar Generos") {
+		DataTable("Collection<Genero>", null) {
+			header : {
+	            Label("Nombre");
+	            Label("");
+	            Label("");
+	        }
+	        body :
+	        	for(Genero genero in lista) {
+	               	Label(genero.nombre);
+	               	Button("Editar") -> editarGenero(genero.id);
+	               	Button("Eliminar") -> eliminarGenero(genero.id);	               	
+	            }
+		}
+		
+		PanelButton("Botones") {
+			Button("Crear Nuevo Genero") -> crearGenero();		
+		}
+	}
+	
+}

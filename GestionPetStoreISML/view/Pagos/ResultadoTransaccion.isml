@@ -1,0 +1,24 @@
+package Pagos;
+
+import Models.*;
+import Controllers.*;
+
+page ResultadoTransaccion(RegistroPago registropago) controlledBy PagosController {
+	
+	Panel("Resultado de la Transacci&#243;n") {
+		Form {			
+			OutputText("idventa", registropago.ventaid);			
+			OutputText("Fecha", registropago.fecha);
+			OutputText("Valor", registropago.valor);
+			OutputText("Estado", registropago.estadotransaccion);
+			OutputText("C&#243;digo Aprobaci&#243;n", registropago.codigoaprobacion);
+			
+			PanelButton("panelopciones") {				
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Nueva Venta") -> crearNuevaVenta();
+		}
+	}
+}

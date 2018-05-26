@@ -1,0 +1,11 @@
+package Models;
+
+entity Departamento {
+	Integer id;
+	String nombre;
+	
+	Integer paisid;
+	Pais pais;
+	
+	List<Ciudad> ciudades opposite departamento;
+}

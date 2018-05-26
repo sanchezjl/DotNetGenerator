@@ -1,0 +1,43 @@
+package Cliente;
+
+import Models.*;
+import Controllers.*;
+
+page ConsultarClientes(Collection<Cliente> listaCliente) controlledBy ClienteController  { 
+
+	Panel("Gestionar Clientes") {
+		DataTable("Collection<Cliente>", null) {
+			header : {
+	            Label("C&#233;dula");
+	            Label("Nombres");
+	            Label("Apellidos");
+	            Label("Fecha Nacimiento");
+	            Label("Foto");
+	            Label("Activo");
+	            Label("Genero");
+	            Label("Ciudad");
+	            Label("");
+	            Label("");
+	        }
+	        body :
+	        	for(Cliente cliente in listaCliente) {
+	               	Label(cliente.cedula);
+	               	Label(cliente.nombres);
+	               	Label(cliente.apellidos);
+	               	Label(cliente.fechanacimiento);
+	               	Image(cliente.fotourl);
+	               	CheckBox(null,cliente.usuarioactivo);
+	               	Label(cliente.genero.nombre);
+	               	Label(cliente.ciudad.nombre);	               		               	
+	                Button("Editar") -> editarCliente(cliente.id);
+	                Button("Eliminar") -> eliminarCliente(cliente.id);
+	            }
+		}
+		
+		
+		PanelButton("Botones") {
+			Button("Crear Nuevo Cliente") -> crearCliente();
+		}			
+	}
+	
+}

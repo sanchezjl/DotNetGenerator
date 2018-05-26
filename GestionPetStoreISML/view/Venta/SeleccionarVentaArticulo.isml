@@ -1,0 +1,32 @@
+package Venta;
+
+import Models.*;
+import Controllers.*;
+
+page SeleccionarVentaArticulo(Venta venta, Collection<Producto> listaproductos) controlledBy VentaController  {
+
+	Panel("Seleccione un producto") {
+		DataTable("Collection<Producto>", null) {
+			header : {	            
+	            Label("Nombre");	            
+	            Label("Imagen");
+	            Label("Tipo producto");
+	            Label("Precio unitario");
+	            Label("");
+	        }
+	        body :
+	        	for(Producto producto in listaproductos) {	               	
+	               	Label(producto.nombre);
+	               	Image(producto.fotourl);	               	
+	               	Label(producto.tipo_producto.nombre);
+	               	Label(producto.precio);
+	               	Button("Selecionar") -> crearVentaArticulo(venta.id, producto.id);	               	
+	            }
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarVenta();		
+		}
+	}
+	
+}

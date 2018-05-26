@@ -1,0 +1,31 @@
+package Configuracion;
+
+import Models.*;
+import Controllers.*;
+
+page ConsultarConfiguracion() controlledBy ConfiguracionController  {	
+	
+	Panel("Gestionar Configuraci&#243;n") 
+	{	
+		
+		PanelButton("Botones")
+		{
+			Button("Administrar datos PAIS") -> gestionarPais();
+		}
+		
+		PanelButton("Botones")
+		{
+			Button("Administrar datos DEPARTAMENTO") -> gestionarDepartamento();
+		}
+		
+		PanelButton("Botones")
+		{
+			Button("Administrar datos CIUDAD") -> gestionarCiudad();
+		}
+		
+		PanelButton("Botones")
+		{
+			Button("Administrar datos GENERO") -> gestionarGenero();
+		}
+	}	
+}

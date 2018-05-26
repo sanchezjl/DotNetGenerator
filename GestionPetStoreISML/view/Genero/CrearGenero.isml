@@ -1,0 +1,21 @@
+package Genero;
+
+import Models.*;
+import Controllers.*;
+
+page CrearGenero(Genero genero) controlledBy GeneroController {
+	
+	Panel("Crear Genero") {
+		Form {			
+			Text("Nombre", genero.nombre, 15, 3);			
+			
+			PanelButton("Botones") {
+				Button("Crear") -> crearGenero(genero);
+			}
+		}
+		
+		PanelButton("Botones") {
+			Button("Volver al listado") -> consultarGenero();
+		}
+	}
+}

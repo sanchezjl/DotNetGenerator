@@ -1,0 +1,52 @@
+package Controllers;
+
+import Models.*;
+import Tipo_Producto.*;
+
+controller Tipo_ProductoController {
+	
+	has Persistence<Tipo_Producto> persistence;	
+	
+	default consultarTipo_Producto() {
+		show ConsultarTipo_Producto(persistence.findAll());
+	}
+		
+	crearTipo_Producto() {		
+		Tipo_Producto tipo_producto = new Tipo_Producto;
+		show CrearTipo_Producto(tipo_producto);
+	}	
+	
+	crearTipo_Producto(Tipo_Producto tipo_producto) {		
+		persistence.create(tipo_producto);
+		-> consultarTipo_Producto();
+	}
+	
+	eliminarTipo_Producto(Integer id) {
+		show EliminarTipo_Producto(persistence.find(id));
+	}
+	
+	eliminarTipo_Producto(Tipo_Producto tipo_producto) {
+		persistence.remove(tipo_producto);		
+		-> consultarTipo_Producto();
+	}
+	
+	
+	editarTipo_Producto(Integer id) {
+		show EditarTipo_Producto(persistence.find(id));
+	}	
+	
+	editarTipo_Producto(Tipo_Producto tipo_producto) {
+		
+		if(persistence.isPersistent(tipo_producto))
+		{
+			persistence.save(tipo_producto);			
+		}
+		else
+		{
+			persistence.create(tipo_producto);
+		}		
+		
+		-> consultarTipo_Producto();
+	}
+	
+}

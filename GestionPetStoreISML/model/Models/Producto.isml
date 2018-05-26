@@ -1,0 +1,15 @@
+package Models;
+
+entity Producto {
+	Integer id;
+	String nombre must be NotNull;
+	String descripcion;
+	String sitioweb;
+	String fotourl;
+	String videourl;
+	Integer tipo_productoid;
+	Tipo_Producto tipo_producto;
+	Integer precio;	
+	List<VentaArticulos> ventaarticulos opposite producto;	
+}
+
