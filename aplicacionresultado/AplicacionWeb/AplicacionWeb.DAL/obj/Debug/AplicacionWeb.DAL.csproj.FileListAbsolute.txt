@@ -1,0 +1,12 @@
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.DAL\obj\Debug\AplicacionWeb.DAL.csprojResolveAssemblyReference.cache
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.DAL\bin\Debug\AplicacionWeb.DAL.dll.config
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.DAL\bin\Debug\AplicacionWeb.DAL.dll
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.DAL\bin\Debug\AplicacionWeb.DAL.pdb
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.DAL\bin\Debug\AplicacionWeb.Models.dll
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.DAL\bin\Debug\EntityFramework.dll
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.DAL\bin\Debug\AplicacionWeb.Models.pdb
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.DAL\bin\Debug\EntityFramework.xml
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.DAL\obj\Debug\AplicacionWeb.DAL.dll
+C:\Users\JULIAN\Desktop\AplicacionWeb\AplicacionWeb.DAL\obj\Debug\AplicacionWeb.DAL.pdb
