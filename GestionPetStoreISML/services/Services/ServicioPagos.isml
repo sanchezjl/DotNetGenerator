@@ -1,15 +1,16 @@
 package Services;
 
 service ServicioPagos <RegistroPago>{	
-	
 	native String obtenerDatosDatafono(RegistroPago obj);	
 	native Boolean anularTransaccion(RegistroPago obj);		
 	native RegistroPago consultarTransaccion(String id);	
-	native Long consultarSaldoTarjeta(RegistroPago obj);	
+	native Long consultarSaldoTarjeta(RegistroPago obj);
 	native List <RegistroPago> consultarReporteTransaccionesAprobadas();	
 	native List <RegistroPago> consultarReporteTransaccionesAnuladas();	
-	native String registrarPagoBonosSodexo(RegistroPago obj);	
-	native String redimirPutosCompra(RegistroPago obj);
-	
+	native String registrarPagoBonosDescuento(RegistroPago obj);	
+	native String redimirPuntosCompra(RegistroPago obj);	
 }
+
+
+
 
